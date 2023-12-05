@@ -41,6 +41,7 @@ output: html_document
 Kochhar, R. (2023, March 1). The enduring grip of the gender pay gap. Pew Research Center’s Social & Demographic Trends Project. https://www.pewresearch.org/social-trends/2023/03/01/the-enduring-grip-of-the-gender-pay 
 
 Link to GitHub Repository. 
+https://github.com/tawojobi/DSCI401
 
 ```{r}
 gender_pay <- read.csv("/Users/tobilobaawojobi/Library/Mobile Documents/com~apple~CloudDocs/DSCI 401  Materials /archive/PanelStudyIncomeDynamics.csv")
