@@ -1,0 +1,169 @@
+---
+title: "Individual Project"
+author: "Tobiloba Awojobi"
+date: "2023-11-14"
+output: html_document
+---
+## Introduction 
+  <p> Gender inequality refers to the unequal treatment and representation of individuals based on their gender. It can manifest in various forms including economic disparities, unequal access to education and healthcare, limited political representation, and discriminatory social attitudes and practices. In the context of the United States, the difference between the earnings of men and women is significantly large. As of 2022, American women typically earned 82 cents for every dollar earned by men. This number is about the same as it was in 2002 when women earned 80 cents for every dollar at that time (Kochhar, 2023).
+  <p> Women have historically been underrepresented which has sparked a long-standing fight for gender equality across all institutions. Their lack of representation and diversity in important spaces such as politics and education has allowed for egregious practices and policies to be passed that do not adequately address the needs and concerns of women but continue to perpetuate a culture of toxic masculinity and misogyny. This project seeks to address what factors contribute to the educational and economic gaps between males and females, future implications, and directions for further research. 
+
+## Dataset 
+  <p> In this dataset (https://www.kaggle.com/datasets/fedesoriano/gender-pay-gap-dataset), there are two files – a Panel Study of Income Dynamics (PSID) microdata over the 1980 – 2010 period and the Current Population Survey (CPS) national data on United States gender pay gap. I utilize the PSID microdata for my analysis. This microdata is a longitudinal study of families in the USA that began in 1968. It includes data covering employment, income, wealth, race, region, occupation, industry, marriage, etc. with 33398 observations of 274 variables. 
+  <p> For my analysis, I will be working with six variables – Degree, Sex, Usual Hours Worked Per Week, Annual Labor Income, Experience and Annual Hours Worked. The dataset provides evidence of the trends in gender wage gap that declined significantly between the 1980 – 2010 period. 
+
+## Methods and Research Questions 
+  <p> I aim to display the differences between men and women in education, and income and how it contributes to structural barriers or “glass ceiling” that could impede women’s advancement in their careers. I also aim to demonstrate how societal expectations regarding care giving responsibilities could result in lower working hours with low pay or higher working hours with about the same pay a man might earn working less hours. These barriers place a disproportionate burden on women impacting their career progression and income. 
+  <p> The variable "Sex" has two values - 1 which represents "Male" and 2 which represents "Female". The ifelse function was utilized for this variable to convert the categorical data to characters based on a true or false condition. The variable "degree" has three values - 0 which represents "no college degree", 1 which represents a "Bachelors without advanced degree", and 2 which represents an "Advanced degree". 
+  <p> The variable was factored to convert the categorical data to characters. In the second plot analysis, the "Annual Labor Income" variable was lagged by base 10 to normalize the data as it contains a wide range of values. I reduced the scale of the extreme values to make the data more comparable and easy to visualize. The description in my results however would reflect the data when it is not lagged. For the last question, I will show two plots - one whereby the Annual Labor income variable is lagged and one when it is not. I ask the following research questions.
+
+1.For each degree level (No college degree, Bachelors without advanced degree, and Advanced degree) what percentage are female and what percentage are male?
+
+2.What proportion of males and females work 40 hours a week?
+
+3.What proportion of males and females earn above and below $50,000?
+
+4.Create a scatter plot displaying Experience on the x-axis and Annual Labor Income on the y-axis with colors for Sex.
+
+5.Create an interactive line plot using plotly displaying Annual Hours on the x-axis and Annual Labor Income on the y-axis with colors for Sex. 
+
+## Results
+   <p> The initial question's findings suggest a higher percentage of educated women compared to men in the PSID microdata. Women holding Bachelor’s degrees constitute approximately 51%, slightly exceeding men at about 49%. Advanced degrees reflect a similar trend with 54% of women earning them, while men stand at 46%. Shifting to the second query regarding those working a 40-hour week, statistics indicate that 44% of women and 41% of men match this criterion.
+  <p> While the gender margin in educational attainment appears narrow, the third question reveals a substantial earnings gap between men and women. To illustrate this, I analyzed incomes above and below $50,000, approximating the minimum US salary. The data underscores that 28% of men earn above $50,000, while merely 12% of women do. Additionally, a staggering 88% of women earn below this benchmark compared to 71% of men. This discrepancy persists despite men working fewer hours and having lower educational levels than women.
+  <p> The fourth question presents a scatter plot correlating Experience against Annual Labor Income for men and women. Despite women averaging more experience, their incomes significantly lag behind. For instance, a woman with 36 years of experience earns $923,392, while a man with 35 years of experience earns $1,500,000—a substantial difference of $576,608. Even with different occupations factored in, the norm remains: greater experience generally equates to higher income. The evident disparity strongly suggests gender-based discrimination. For example, a woman with 38 years of experience earns about $600,000 annually, whereas a man with 34 years of experience earns approximately $700,000.
+  <p> My final inquiry involves plotting annual hours worked against annual labor income to discern a correlation between work hours and earnings, considering gender as a determining factor. The interactive graph highlights a disparity in the highest working hours: men average 3000 hours compared to women's 1224 hours. This discrepancy partially relates to gender-skewed occupational preferences—fields like healthcare and social work employ more women, while engineering, construction, and manufacturing are male-dominated. These career discrepancies are exacerbated by societal expectations, leading to economic disparities. Society often expects women to assume nurturing roles like nursing, while men are pushed toward lucrative professions like software engineering, perpetuating unequal pay. Surprisingly, despite the inverse relationship between annual hours worked and annual labor income for both genders, men consistently out earn women. For example, a woman working 5000 hours annually earns $58,000, whereas a man working 4920 hours earns $70,000.
+
+## Conclusions and Future Research 
+  <p> The disparities revealed in this research underscore a persistent and concerning trend of gender-based inequality in education, earnings, and work hours. Despite women showcasing higher educational achievement and working longer hours in certain cases, they consistently earn less than men. These findings strongly indicate the prevalence of gender discrimination within the labor market, perpetuating economic disparities irrespective if qualifications or experience.
+  <p> I suggest for future research that researchers focused on closing the gender gap investigate the efficacy of institutional policies and interventions aimed at reducing gender – based pay gaps. They should assess the impact of measures such as pay transparency, equal opportunity employment policies and targeted educational initiatives. Researchers could also conduct longitudinal studies tracking individuals over time to analyze career trajectories, earnings progression, and how gender impacts career advancement in male-dominated professions. My last suggestion is to consider intersectionality by examining how factors like race, ethnicity, sexual orientation, and gender identity intersect with gender in shaping employment outcomes and wage disparities and compare their findings with data from various countries to assess cross-cultural variations in gender-based economic disparities and identify strategies to mitigate these differences. 
+
+## Appendix 
+Kochhar, R. (2023, March 1). The enduring grip of the gender pay gap. Pew Research Center’s Social & Demographic Trends Project. https://www.pewresearch.org/social-trends/2023/03/01/the-enduring-grip-of-the-gender-pay 
+
+Link to GitHub Repository. 
+
+```{r}
+gender_pay <- read.csv("/Users/tobilobaawojobi/Library/Mobile Documents/com~apple~CloudDocs/DSCI 401  Materials /archive/PanelStudyIncomeDynamics.csv")
+
+library (tidyverse)
+library(mdsr)
+library(ggplot2)
+library(plotly)
+library(dplyr)
+```
+
+## Question 1 
+```{r}
+gender_pay$degree_label <- factor(gender_pay$degree, labels = c("0" = "No College Degree", "1" = "Bachelor without Advanced Degree", "2" = "Advanced Degree"))
+
+gender_pay$sex_label <-  ifelse(gender_pay$sex == 1, "Male", "Female")
+
+gender_pay %>% 
+  group_by(degree_label) %>% 
+  summarize(mean(sex_label == "Male", na.rm = TRUE) * 100)
+
+gender_pay %>% 
+  group_by(degree_label) %>% 
+  summarize(mean(sex_label == "Female", na.rm = TRUE) * 100)
+```
+
+
+## Question 2
+```{r}
+gender_pay$sex_label <-  ifelse(gender_pay$sex == 1, "Male", "Female")
+
+total_40_hours <- gender_pay %>%
+  filter(usualhrwk == 40) %>%
+  group_by(sex_label) %>%
+  summarize(count = n())
+
+total_by_gender <- gender_pay %>%
+  group_by(sex_label) %>%
+  summarize(total_count = n())
+
+proportions <- merge(total_40_hours, total_by_gender, by = "sex_label")
+
+proportions$proportion_40_hours <- proportions$count / proportions$total_count * 100
+
+print(proportions)
+```
+
+## Question 3 
+```{r}
+gender_pay %>% filter(annlabinc >= 50000 & annlabinc <= 50000) %>% group_by(sex)
+
+above_50k_male <- sum(gender_pay$sex == "1" & gender_pay$annlabinc > 50000)
+above_50k_female <- sum(gender_pay$sex == "2" & gender_pay$annlabinc > 50000)
+
+below_50k_male <- sum(gender_pay$sex == "1" & gender_pay$annlabinc <= 50000)
+below_50k_female <- sum(gender_pay$sex == "2" & gender_pay$annlabinc <= 50000)
+
+prop_above_50k_male <- above_50k_male / sum(gender_pay$sex == "1") * 100
+prop_above_50k_female <- above_50k_female / sum(gender_pay$sex == "2") * 100
+
+prop_below_50k_male <- below_50k_male / sum(gender_pay$sex == "1") * 100
+prop_below_50k_female <- below_50k_female / sum(gender_pay$sex == "2") *100
+
+print(paste("The percentage of males earning above $50k is:", prop_above_50k_male))
+print(paste("The percentage of females earning above $50k is:", prop_above_50k_female))
+
+print(paste("The percentage of males earning below $50k is:", prop_below_50k_male))
+print(paste("The percentage of males earning below $50k is:", prop_below_50k_female))
+
+```
+
+## Question 4 
+```{r}
+gender_pay$sex_label <-  ifelse(gender_pay$sex == 1, "Male", "Female")
+
+ggplot(gender_pay, aes(x = yrsexp, y = annlabinc, color =(sex_label))) +
+  geom_point() + 
+  labs(
+    title = "Experience vs. Annual Labor Income",
+    x = "Experience",
+    y = "Annual Labor Income", 
+    color = "Gender"
+  ) +
+ scale_color_manual(values = c("red", "blue"))
+```
+
+## Question 5 
+```{r}
+gender_pay$sex_label <-  ifelse(gender_pay$sex == 1, "Male", "Female")
+
+plot <- ggplot(gender_pay, aes(x = annhrs, y = annlabinc, color = (sex_label))) +
+      geom_point(alpha = 0.5, size = 3) + 
+        labs(
+              title = "Annual Hours Worked vs. Annual Labor Income", 
+              x = "Annual Hours Worked", 
+              y = "Annual Labor Income", 
+              color = "Gender") +
+        geom_smooth() +
+    theme_minimal() 
+
+interactive_plot <- ggplotly(plot)
+
+interactive_plot
+```
+
+## Question 5 Lagged Plot 
+```{r}
+
+gender_pay$sex_label <-  ifelse(gender_pay$sex == 1, "Male", "Female")
+
+plot <- ggplot(gender_pay, aes(x = annhrs, y = log10(annlabinc), color = (sex_label))) +
+      geom_point(alpha = 0.5, size = 3) + 
+        labs(
+              title = "Annual Hours Worked vs. Annual Labor Income", 
+              x = "Annual Hours Worked", 
+              y = "Annual Labor Income", 
+              color = "Gender") +
+        geom_smooth() +
+    theme_minimal() 
+
+interactive_plot <- ggplotly(plot)
+
+interactive_plot
+
+```
+
